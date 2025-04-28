@@ -3,146 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Tech Co.</title>
-    <style>
-        body {
-            background-image: url(picture/bacground.png);
-            background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            margin: 0px;
-        }
-        h1 {
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 38px;
-            text-align: center;
-            margin-bottom: 5px;
-            font-weight: lighter;
-        }
-
-        h2 {
-            text-transform: uppercase;
-            font-size: 16px;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-            margin-bottom: 5px;
-            font-weight: lighter;
-        }
-        header{
-            margin-bottom: 40px;
-            width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        #menu {
-            margin-left: auto;
-            margin-right: auto;
-            background-color: rgba(255, 255, 255, 0.103);
-            backdrop-filter: blur(20px);
-            max-width: 595px;
-            width: 80%;
-            height: 415px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-       img {
-        max-width: 70px;
-        width: 40%;
-        margin: auto;
-        margin-top: 10px;
-        padding: 50px;
-       }
-       p {
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 16px;
-            text-align: center;
-            margin-bottom: 5px;
-            font-weight: lighter;
-       }
-       .top {
-        display: flex;
-        text-align: center;
-        height: 50%;
-        margin: 0px;
-       }
-       .bottom {
-        display: flex;
-        text-align: center;
-      
-        height: 50%;
-        margin: 0px;
-       }
-       div {
-        width: 100%;
-        height: 130px;
-        margin: 50px;
-        padding: 0px;
-       }
-       .scale {
-        margin: auto;
-       }
-       .paraf {
-        color: rgb(255, 255, 255);
-        margin-top: -5px;
- 
-        width: 98px;
-        height: 23px;
-        margin-left: auto;
-        margin-right: auto;
-       }
-       a {
-        text-decoration: none;
-       }
-        img{
-            height: 80px;
-            padding: 14px;
-            margin: 0;
-        }
-        .scale:hover {
-            scale: 1.2;
-            transition-duration: 0.5s;
-        }
-        .scale:not(hover) {
-            scale: 1;
-            transition-duration: 0.4s;
-        }
-       .foot{
-        width: 20px;
-        padding: 20px;
-        height: 30px;
-        margin-top: 0px;
-       }
-       footer {
-        text-align: center;
-       }
-    </style>
+    <meta name="description" content="Front-end website design">
+    <meta name="keywords" content="website, design, font-end, website programming, HTML, CSS, JavaScript, web developer">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Jakub Górecki">
+    <title>JAKUB GÓRECKI PORFOLIO</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/js/all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/fontawesome.min.css" rel="stylesheet">
 </head>
 <body>
-        <header>
-            <h1>Portal Tech Co.</h1>
-            <h2>choose a category</h2>
-        </header>
-        <main>
-            <div id="menu">
-               <div class="top">
-                   <div class="scale"><a href=""><img src="picture/print.svg" alt=""><p class="paraf">Printers</p></a></div>
-                   <div class="scale"><a href=""><img class="monitors" src="picture/monitors.svg" alt=""><p class="paraf">Monitors</p></a></div>
-                   <div class="scale"><a href=""><img src="picture/headset.svg" alt=""><p class="paraf">Headsets</p></a></div>
-               </div>
-               <div class="bottom">
-                    <div class="scale"><a href=""><img src="picture/storage.svg" alt=""><p class="paraf">Storage</p></a></div>
-                    <div class="scale"><a href=""><img class="processors" src="picture/processors.svg" alt=""><p class="paraf">Processors</p></a></div>
-                    <div class="scale"><a href=""><img class="mouse" src="picture/mouse.svg" alt=""><p class="paraf">Mouse</p></a></div>
-               </div>
+    
+    <nav>
+        <div><a href="#home">HOME</a></div>
+        <div><a href="#projects-section">PROJECTS</a></div>
+        <div><a href="#contact">CONTACT</a></div>
+    </nav>
+
+    <main>
+        <section id="home">
+            <div class="left-section">
+                <h1>
+                    JAKUB GÓRECKI
+                </h1>
+                <h2>
+                    PORTFOLIO OF <br>
+                    FRONT-END PROJECTS
+                </h2>
+                <hr>
+                <p>
+                    Hello! I'm starting my journey as a frontend developer and I'm excited to share my current projects with you.
+                    Please take a look at my portfolio to see what I've created so far.
+                </p>
+    
             </div>
-        </main>
-        <footer>
-            <a href="https://x.com/"><img src="picture/twitter.svg" alt="" class="foot"></a>
-            <a href="https://www.facebook.com/?locale=pl_PL"><img src="picture/facebook.svg" alt="" class="foot"></a>
-            <a href="https://www.instagram.com/"><img src="picture/instagram.svg" alt="" class="foot"></a>
-        </footer>
+
+            <div class="right-section">
+                <div class="img-center"></div>
+            </div>
+
+        </section>
+        <section id="projects-section">
+            <a href="PROJECT_1/index.html"><div class="project project-1"><p>PROJECT #1</p></div></a>
+            <a href="#"><div class="project project-2"><p>PROJECT #2</p></div></a>
+            <a href="#"><div class="project project-3"><p>PROJECT #3</p></div></a>
+            <a href="#"><div class="project project-3"><p>PROJECT #4</p></div></a>
+        </section>
+    </main>
+
+    <footer>
+        <section id="contact">
+            <div class="info">CONTACT</div>
+            <div>
+                <p>EMAIL</p>
+                <i class="fa-regular fa-envelope"></i>
+            </div>
+            <div>
+                <p>LINKEDIN</p>
+                <i class="fa-brands fa-linkedin"></i>
+            </div>
+        </section>
+    </footer>
 </body>
 </html>

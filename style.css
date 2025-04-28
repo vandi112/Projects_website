@@ -1,0 +1,192 @@
+body {
+    background-color: #0d3749;
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+}
+
+
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 1% 0;
+    background-color: #31363f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid rgb(44, 44, 44);
+    z-index: 1;
+    box-shadow: 1px 0.5px 5px black;
+}
+nav div a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+
+}
+nav div {
+    padding: 0px 10%;
+}
+main, footer {
+    color: white;
+}
+
+#home {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-wrap: wrap;
+    text-shadow: 2px 2px 2px black;
+    margin-bottom: 200px;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+#home p {
+    font-size: 1.5rem;
+    flex-basis: 49%;
+}
+hr {
+    width: 60%;
+    border: 2px solid white;
+}
+
+.left-section {
+    flex-basis: 49%;
+   
+    padding-top: 50px;
+}
+.right-section {
+    flex-basis: 49%;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.laptop-photo {
+    height: 100%;
+    justify-content: center;
+}
+
+.left-section h1, h2, p {
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+h2 {
+    line-height: 70px;
+}
+br {
+    height: 200px;
+}
+
+.left-section p {
+    width: 40%;
+    line-height: 35px;
+}
+.img-center {
+    margin-top: 50px;
+    border: 2px solid rgb(44, 44, 44);
+    height: 600px;
+    width: 500px;
+    background-image: url(photo/laptop_photo.png);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 1px 1px 10px black;
+}
+footer{
+    display: flex;
+    justify-content: space-around;
+    gap: 100px;
+}
+
+#projects-section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 150px;
+    justify-content: space-around;
+    text-shadow: 2px 2px 5px black;
+    margin-bottom: 10px;
+}
+.project{
+    background-image: url(photo/cooming_soon.png);
+    width: 500px;
+    height: 300px;
+    background-position: center;
+    margin-left: auto; 
+    margin-right: auto;
+    margin-top: px;
+    background-size: 100%;
+    border: 2px solid rgb(44, 44, 44);
+    box-shadow: 1px 1px 10px black;
+    
+
+}
+
+#projects-section a {
+    text-decoration: none;
+    color: white;
+    
+}
+.project-1{
+    background-image: url(photo/PROJECT.jpg);
+    background-size: 121%;
+}
+
+#projects-section div p {
+    text-align: center;
+    position: relative;
+    top: -80px;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+#contact {
+    margin-top: 100px;
+    border-top: 2px solid white;
+    width: 70%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 150px;
+    align-items: center;
+    justify-content: center;
+}
+#contact div {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+#contact div p {
+    margin: 0px;
+}
+.info {
+    font-weight: bold;
+    font-size: 2rem !important;
+}
+.fa-regular, .fa-envelope, .fa-brands, .fa-linkedin {
+    color: white;
+    font-size: 3rem;
+    margin: 5px;
+    
+}
