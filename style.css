@@ -114,6 +114,19 @@ br {
     background-position: center;
     box-shadow: 1px 1px 10px black;
 }
+@media(max-width: 530px){
+.img-center {
+    margin-top: 50px;
+    border: 2px solid rgb(44, 44, 44);
+    height: 500px;
+    width: 400px;
+    background-image: url(photo/laptop_photo.png);
+    background-size: cover;
+    background-position: center;
+    box-shadow: 1px 1px 10px black;
+}
+}
+
 footer{
     display: flex;
     justify-content: space-around;
@@ -132,6 +145,8 @@ footer{
     text-shadow: 2px 2px 5px black;
     margin-bottom: 10px;
 }
+
+
 .project{
     background-image: url(photo/cooming_soon.png);
     width: 500px;
@@ -146,6 +161,22 @@ footer{
     
 
 }
+@media(max-width: 530px){
+    .project{
+        background-image: url(photo/cooming_soon.png);
+        width: 400px;
+        height: 240px;
+        background-position: center;
+        margin-left: auto; 
+        margin-right: auto;
+        margin-top: px;
+        background-size: 100%;
+        border: 2px solid rgb(44, 44, 44);
+        box-shadow: 1px 1px 10px black;
+        
+    
+    }
+    }
 
 #projects-section a {
     text-decoration: none;
@@ -168,7 +199,7 @@ footer{
 #contact {
     margin-top: 100px;
     border-top: 2px solid white;
-    width: 70%;
+    width: 75%;
     display: flex;
     flex-wrap: wrap;
     margin-top: 50px;
@@ -191,6 +222,13 @@ footer{
     margin: 5px 5%;
     text-align: center;
 }
+@media(max-width: 530px){
+#contact div {
+    margin: 5px 1%;
+    text-align: center;
+    font-size: 1rem;
+}
+}
 .info {
     font-weight: bold;
     font-size: 1rem !important;
@@ -202,3 +240,10 @@ footer{
     margin: 5px;
     
 }
+@media(max-width: 530px){
+    .fa-regular, .fa-envelope, .fa-brands, .fa-linkedin {
+        color: white;
+        font-size: 2rem;
+        margin: 5px;
+    }
+    }
