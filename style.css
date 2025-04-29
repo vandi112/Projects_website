@@ -114,7 +114,7 @@ br {
     background-position: center;
     box-shadow: 1px 1px 10px black;
 }
-@media(max-width: 530px){
+@media(max-width: 600px){
 .img-center {
     margin-top: 50px;
     border: 2px solid rgb(44, 44, 44);
@@ -149,8 +149,8 @@ footer{
 
 .project{
     background-image: url(photo/cooming_soon.png);
-    width: 500px;
-    height: 300px;
+    width: 550px;
+    height: 320px;
     background-position: center;
     margin-left: auto; 
     margin-right: auto;
@@ -161,7 +161,7 @@ footer{
     
 
 }
-@media(max-width: 530px){
+@media(max-width: 600px){
     .project{
         background-image: url(photo/cooming_soon.png);
         width: 400px;
@@ -222,7 +222,7 @@ footer{
     margin: 5px 5%;
     text-align: center;
 }
-@media(max-width: 530px){
+@media(max-width: 600px){
 #contact div {
     margin: 5px 1%;
     text-align: center;
@@ -240,7 +240,7 @@ footer{
     margin: 5px;
     
 }
-@media(max-width: 530px){
+@media(max-width: 600px){
     .fa-regular, .fa-envelope, .fa-brands, .fa-linkedin {
         color: white;
         font-size: 2rem;
