@@ -67,6 +67,12 @@ hr {
 @media (max-width: 1000px) {
     .left-section {
         padding-top: 50px;
+        
+    }
+     .left-section p,h2{
+        width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;       
     }
 }
 @media (min-width: 1001px) {
@@ -118,8 +124,8 @@ br {
 .img-center {
     margin-top: 50px;
     border: 2px solid rgb(44, 44, 44);
-    height: 500px;
-    width: 400px;
+    height: 450px;
+    width: 360px;
     background-image: url(photo/laptop_photo.png);
     background-size: cover;
     background-position: center;
@@ -164,8 +170,8 @@ footer{
 @media(max-width: 600px){
     .project{
         background-image: url(photo/cooming_soon.png);
-        width: 400px;
-        height: 240px;
+        width: 360px;
+        height: 216px;
         background-position: center;
         margin-left: auto; 
         margin-right: auto;
@@ -175,6 +181,15 @@ footer{
         box-shadow: 1px 1px 10px black;
         
     
+    }
+    }
+
+@media(max-width: 600px){
+    .left-section h1{
+       font-size: 2.5rem;
+    }
+    .left-section h2 {
+        font-size: 2.5rem;
     }
     }
 
