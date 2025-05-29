@@ -187,6 +187,10 @@ footer{
     background-image: url(photo/PROJECT.jpg);
     background-size: 121%;
 }
+.project-2{
+    background-image: url(photo/dog_calculator.png);
+    background-size: 110%;
+}
 
 #projects-section div p {
     text-align: center;
