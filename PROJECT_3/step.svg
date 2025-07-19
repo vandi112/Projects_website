@@ -1,0 +1,18 @@
+<svg width="50" height="50" viewBox="15 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#b05b1b" transform="rotate(25 78 78)">
+    <!-- Główna poduszka łapy -->
+    <ellipse cx="60" cy="87" rx="28" ry="25" />
+
+    <!-- Lewy palec -->
+    <ellipse cx="30" cy="52" rx="10" ry="16" transform="rotate(-20 35 60)" />
+
+    <!-- Lewy-środkowy palec -->
+    <ellipse cx="52" cy="38" rx="12" ry="20"  transform="rotate(-15 40 45)"/>
+
+    <!-- Prawy-środkowy palec -->
+    <ellipse cx="78" cy="36" rx="12" ry="20" transform="rotate(15 80 50)" />
+
+    <!-- Prawy palec -->
+    <ellipse cx="96" cy="52" rx="9" ry="16" transform="rotate(20 80 70)" />
+  </g>
+</svg>
