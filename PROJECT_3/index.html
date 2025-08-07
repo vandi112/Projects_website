@@ -84,6 +84,8 @@
     }
     #weight_slider_div {
         margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
     }
     #age_div, #weight_div, #body_div, #activity_div{
         display: flex;
@@ -102,7 +104,9 @@
         width: 100px;
         height: 30px;
         margin-left: 20px;
-        
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
     }
     #submit{
         border: none;
@@ -220,7 +224,44 @@
     #submit_div_2 p {
         margin-bottom: 5px;
     }
+    .image_activity:hover, .image_body:hover, .image_age:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+       
+       
+    }
+    #submit:hover{
+        cursor: pointer;
+    }
+    #submit:active{
+        scale: 1.1;
+        transition: 200ms;
+    }
+    #submit{
+        transition: all 300ms ease;
+    }
+
+    .selected {
     
+        filter: saturate(130%) brightness(1.2) drop-shadow(3px -3px 4px rgb(58, 36, 24));
+        transform: scale(1.2);
+        transition: all 300ms ease;
+        
+        
+    }
+    .image_activity, .image_body, .image_age{
+        filter: brightness(0.90) saturate(85%);
+        transition: all 300ms ease;
+       
+    }
+
+    .input_info{
+        color: rgb(241, 42, 42);
+        width: 150px;
+        font-size: 12px;
+        background-color: #ecd8c6;
+    }
+   
 </style>
 <body>
 
@@ -244,14 +285,14 @@
             </div>
 
             <div id="age_image_div">
-                    <div class="image_age"><img style="padding-top: 30px;" src="puppy.png" alt=""><p>Puppy</p> </div>
-                    <div class="image_age"><img style="padding-top: 20px;"src="junior.png" alt=""><p>Junior</p></div>
-                    <div class="image_age"><img src="adult.png" alt=""><p>Adult</p></div>
-                    <div class="image_age"><img style="padding-top: 10px;" src="senior.png" alt=""><p>Senior</p></div>
+                    <div id="puppy" class="image_age"><img style="padding-top: 30px;" src="puppy.png" data-value="Puppy" alt=""><p>Puppy</p> </div>
+                    <div id="junior" class="image_age"><img style="padding-top: 20px;"src="junior.png"  data-value="Junior" alt=""><p>Junior</p></div>
+                    <div id="adult" class="image_age"><img src="adult.png"  data-value="Adult" alt=""><p>Adult</p></div>
+                    <div id="senior" class="image_age"><img style="padding-top: 10px;" src="senior.png"  data-value="Senior" alt=""><p>Senior</p></div>
                 </div>
               
             <div id="weight_div">
-                <h2>Weight</h2> <input class="input" id="outweight_input" name="outweight" type="text" value="1" oninput="weight.value = this.value"> 
+                <h2>Weight</h2> <input readonly class="input" id="outweight_input" name="outweight" type="text" value="1" oninput="weight.value = this.value"> 
             </div>
 
               <div id="weight_slider_div">
@@ -261,17 +302,17 @@
                 </div>
 
             <div id="body_div">
-                <h2>Body Condition</h2> <input class="input" id="body_input" type="text">
+                <h2>Body Condition</h2> <input class="input" readonly id="body_input" type="text">
             </div>
             <div id="body_image_div">
-                    <div class="image_body"><img style="padding-top: 13px;" src="underweight.png" alt=""><p>Underweight</p> </div>
-                    <div class="image_body"><img src="normal.png" alt=""><p style="margin-top: -7px;">Normal</p></div>
-                    <div class="image_body"><img style="padding-top: 5px;" src="overweight.png" alt=""><p style="padding-top: 5px;">Overweight</p></div>
+                    <div class="image_body"><img style="padding-top: 13px;" data-value="Underweight" src="underweight.png" alt=""><p>Underweight</p> </div>
+                    <div class="image_body"><img data-value="Normal" src="normal.png" alt=""><p style="margin-top: -7px;">Normal</p></div>
+                    <div class="image_body"><img style="padding-top: 5px;" data-value="Overweight" src="overweight.png" alt=""><p style="padding-top: 5px;">Overweight</p></div>
                 </div>
                
         <!-- <label for="activity">Wybierz poziom aktywności psa:</label> !-->  
          <div id="activity_div">
-               <h2>Activity Level</h2> <input class="input" id="activity_input" type="text">
+               <h2>Activity Level</h2> <input readonly class="input" id="activity_input" type="text">
               <!--    <select id="activity_id" name="activity">
                     <option value="1.4">Niska aktywność</option>
                     <option value="1.6">Średnia aktywność</option>
@@ -280,9 +321,9 @@
                 </select>  !-->
             </div>
             <div id="activity_image_div">
-                    <div class="image_activity"><img style="padding-top: 43px;" src="low.png" alt=""><p>Low</p> </div>
-                    <div class="image_activity"><img style="padding-top: 5px;"src="moderate.png" alt=""><p>Moderate</p></div>
-                    <div class="image_activity"><img style="margin-top: -10px;"src="high.png" alt=""><p style="margin-top: -6px;">High</p></div>
+                    <div class="image_activity"><img style="padding-top: 43px;" src="low.png" data-value="Low"  alt=""><p>Low</p> </div>
+                    <div class="image_activity"><img style="padding-top: 5px;"src="moderate.png" data-value="Moderate" alt=""><p>Moderate</p></div>
+                    <div class="image_activity"><img style="margin-top: -10px;"src="high.png" data-value="High" alt=""><p style="margin-top: -6px;">High</p></div>
                 </div>
           
 
@@ -318,7 +359,197 @@
            
             }
 
+            // icon
+            let ageInput = document.getElementById('age_input');
+            let bodyInput = document.getElementById('body_input');
+            let activityInput = document.getElementById('activity_input');
+                  
+            //calculate
+
+            function calculate(){
+
+                      let age = 0;
+                      let body = 0;
+                      let activity = 0
+
+                document.querySelectorAll('#age_image_div img').forEach(imgAge => {
+                    imgAge.addEventListener('click', () => {
+                    age = imgAge.getAttribute('data-value');
+                    ageInput.value = age;
+                    console.log('Wybrano wiek:', age);
+                    if(age === "Puppy"){
+                        document.querySelectorAll('#age_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#body_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#activity_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                        activityInput.value = "No calculation for Puppy";
+                        bodyInput.value = "No calculation for Puppy";
+                        bodyInput.classList.add("input_info")
+                        activityInput.classList.add("input_info")
+                        activity = "";
+                        body = "";
+
+                    }else
+                    document.querySelectorAll('#age_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.remove('input_info');
+                        
+
+                        activityInput.value = activity;
+                        bodyInput.value = body;
+                        });
+                        
+                        
+
+                        imgAge.classList.add("selected")  
+                    
+                    
+                
+                   });
+                             
+                });
             
+           
+                document.querySelectorAll('#body_image_div img').forEach(imgBody => {
+                    imgBody.addEventListener('click', () => {
+                    body = imgBody.getAttribute('data-value');
+                    bodyInput.value = body;
+                    console.log('Wybrano cialo:', body);
+                        console.log('Wybrano wiek:', age);
+                    if(age === "Puppy"){
+                        document.querySelectorAll('#age_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#body_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#activity_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                        age = 0;
+                        ageInput.value = ""
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.add("input_info")
+                     } else    
+                         document.querySelectorAll('#body_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.remove('input_info');
+
+                        });
+
+                    imgBody.classList.add("selected")  
+                    });
+                                
+                });
+          
+                
+               
+            
+                document.querySelectorAll('#activity_image_div img').forEach(imgActivity => {
+                    imgActivity.addEventListener('click', () => {
+                    activity = imgActivity.getAttribute('data-value');
+                    activityInput.value = activity;
+                    console.log('Wybrano aktywnosc:', activity);
+                    console.log('Wybrano wiek:', age);
+                    if(age === "Puppy"){
+                        document.querySelectorAll('#age_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#body_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#activity_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                        age = 0;
+                        ageInput.value = ""
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.add("input_info")
+                        } else    
+                        document.querySelectorAll('#activity_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.remove('input_info');
+
+                        });
+
+                        imgActivity.classList.add("selected")  
+
+                    
+                    });
+                           
+                });
+                        let submit = document.getElementById("submit");
+                        let result = document.getElementById("result");
+                        let weight = document.getElementById('outweight_input');
+                        
+                     
+
+                            submit.addEventListener('click', () => {
+                            let w = 0;
+                            let b = 0;
+
+                                if(body === "Normal"){
+                                    b = 1;
+                                }else if (body === "Underweight"){
+                                    b = 1.2;
+                                }else if (body === "Overweight"){
+                                    b = 0.8;
+                                }
+                            // puppy
+                                if(age === "Puppy") {
+                                    w = 3;
+                                    b = 1;
+                                } 
+                            // junior
+                                if (age === "Junior" && activity === "Moderate") {
+                                    w = 2;
+                                } else if (age === "Junior" && activity === "Low"){
+                                    w = 1.8
+                                } else if (age === "Junior" && activity === "High"){
+                                    w = 2.2
+                                }
+                            // adult 
+                                if (age === "Adult" && activity === "Moderate") {
+                                    w = 1.6;
+                                } else if (age === "Adult" && activity === "Low") {
+                                    w = 1.4;
+                                } else if (age === "Adult" && activity === "High") {
+                                    w = 2;
+                                }
+                            // senior
+                                 if (age === "Senior" && activity === "Moderate") {
+                                    w = 1.4;
+                                } else if (age === "Senior" && activity === "Low") {
+                                    w = 1.2;
+                                } else if (age === "Senior" && activity === "High") {
+                                    w = 1.8;
+                                }
+                                
+
+                            const rer = 70*((parseInt(weight.value))**0.75);
+                            let multiply = b * w;
+                            let der = rer * multiply;
+                            
+                            result.value = Math.round(der);
+                            console.log("waga psa:", weight.value , "wiek psa:",age, "body:", body, "activity:", activity, "rer:", rer)
+                            
+                        })
+                        
+       
+
+           
+
+         }
+
+         calculate();
            
            
             range1.addEventListener('input', () => {
@@ -332,12 +563,19 @@
             // inicjalizacja
             updateBackground(range);
 
-            console.log("margin:",)
+       
            
+       
+
+        
+
+       
+
+
 
         // RER=70×(masaciałapsawkg)^0,75; DER=RER×k 
          
-         
+/*      
         let dataWeight = document.getElementById("outweight_input");
         let dataActivity = document.getElementById("activity_id");
         let k = document.getElementById("age_id");
@@ -346,12 +584,12 @@
         
 
         let weight = parseInt(dataWeight.value);       
-        let activity = parseFloat(dataActivity.value);    
+  // let activity = parseFloat(dataActivity.value);    
         let result;
 
         console.log("waga:",weight);
-        console.log("wspoczynnik wedlug aktywnosci:",activity);
-        console.log("wspoczynnik wedlug wieku:",k.value);
+  //  console.log("wspoczynnik wedlug aktywnosci:",activity);
+  //      console.log("wspoczynnik wedlug wieku:",k.value);
 
         k.addEventListener("change", function (){
                 if (k.value > 2) {
@@ -438,6 +676,8 @@
         
         
         });
+
+*/
 
         
            
