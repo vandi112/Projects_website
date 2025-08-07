@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: #efd5af;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #weight{
+        width: 400px;
+        
+    }
+   .styled-range {
+    -webkit-appearance: none;
+    width: 400px;
+    height: 8px;
+    border-radius: 5px;
+    background: linear-gradient(to right, #874418 50%, #efd5af 50%);
+    outline: none;
+    }
+
+    /* Suwak (uchwyt) - Chrome/Safari */
+    .styled-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 45px;
+    width: 40px;
+    background: url('step.svg') no-repeat center center;
+    margin-left: var(--thumb-margin);
+    cursor: pointer;
+    
+    margin-top: -12px; /* wyrównanie z torem */
+    }
+
+    /* Suwak - Firefox */
+    .styled-range::-moz-range-thumb {
+    height: 45px;
+    width: 40px;
+    background: url('step.svg') no-repeat center center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: var(--thumb-margin);
+    margin-top: -12px; /* wyrównanie z torem */
+    }
+
+    #kcal{
+        width: 40px;
+    }
+   
+   
+    #age_id {
+        margin-bottom: 15px;
+        padding: 5px;
+        font-weight: bold;
+        
+    }
+    #activity_id {
+        padding: 5px;
+        font-weight: bold;
+    }
+   /* #outweight_input{
+        width: 15px;
+        margin-right: 5px;
+        border: none;
+        color: black; 
+    } */
+    #weight_calculator {
+        border-radius: 20px;
+        background: linear-gradient(to top, #f9f7f4 0%, #eedbc0 100%);
+        border: none;
+       /*  box-shadow: 1px 1px 2px black; */
+       height: 830px;
+       width: 450px;
+       display: flex;
+       flex-direction: column;
+
+    }
+    .disabled{
+        background-color: black;
+       
+    }
+    #weight_slider_div {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #age_div, #weight_div, #body_div, #activity_div{
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+       
+    }
+    #age_div h2{
+        margin-left: 0px;
+    }
+   
+    .input{
+        border-radius: 15px;
+        border: 1px solid  #c28653;
+        background-color: #f8f4f0;
+        width: 100px;
+        height: 30px;
+        margin-left: 20px;
+        font-weight: bold;
+        font-size: 16px;
+        text-align: center;
+    }
+    #submit{
+        border: none;
+        border-radius: 25px;
+        color: #ffffff;
+        background-color: rgb(236, 116, 35);
+        width: 180px;
+        height: 50px;
+        font-size: 25px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-top: 15px;
+    }
+    #title_div{
+        text-align: center;
+        margin-top: -30px;
+        
+    }
+    #title_div h1{
+        margin-bottom: 0px;
+    }
+    #age_image_div{
+       display: flex;
+       width: 100%;
+       flex-direction: row;
+       flex-wrap: nowrap;
+       justify-content: center;
+       height: 145px;
+    }
+    #age_image_div p {
+        margin-top: 0px;
+    }
+    #age_image_div .image {
+        height: 100%;
+    }
+    #body_image_div{
+       display: flex;
+       width: 100%;
+       flex-direction: row;
+       flex-wrap: nowrap;
+       justify-content: center;
+    }
+    #activity_image_div{
+       display: flex;
+       width: 100%;
+       flex-direction: row;
+       flex-wrap: nowrap;
+       justify-content: center;
+    }
+    .image_age img{
+       width: 60%;
+       margin-left: auto;
+       margin-right: auto;
+    }
+    .image_body img{
+       width: 80%;
+       margin-left: auto;
+       margin-right: auto;
+    }
+    .image_activity img{
+       width: 80%;
+       margin-left: auto;
+       margin-right: auto;
+    }
+    .image_age {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+        height: 165px;
+    }
+    .image_body {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+        height: 165px;
+    }
+    .image_activity {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+        height: 165px;
+    }
+    #body_image_div{
+        height: 130px;
+    }
+    #body_image_div p{
+        margin-top: -5px;
+    }
+    .image_body{
+        height: 130px;
+    }
+    #activity_image_div {
+        height: 130px;
+    }
+    .image_activity{
+        height: 135px;
+    }
+    .image_activity p{
+        margin-top: 0px;
+    }
+    #submit_div {
+        display: flex;
+        margin-top: 20px;
+        align-items: center;
+       justify-content: center;
+
+    }
+     #submit_div_2{
+       margin-left: 20px;
+       font-weight: bold;
+    }
+    #submit_div_2 p {
+        margin-bottom: 5px;
+    }
+    .image_activity:hover, .image_body:hover, .image_age:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+       
+       
+    }
+    #submit:hover{
+        cursor: pointer;
+    }
+    #submit:active{
+        scale: 1.1;
+        transition: 200ms;
+    }
+    #submit{
+        transition: all 300ms ease;
+    }
+
+    .selected {
+    
+        filter: saturate(130%) brightness(1.2) drop-shadow(3px -3px 4px rgb(58, 36, 24));
+        transform: scale(1.2);
+        transition: all 300ms ease;
+        
+        
+    }
+    .image_activity, .image_body, .image_age{
+        filter: brightness(0.90) saturate(85%);
+        transition: all 300ms ease;
+       
+    }
+
+    .input_info{
+        color: rgb(241, 42, 42);
+        width: 150px;
+        font-size: 12px;
+        background-color: #ecd8c6;
+    }
+   
+</style>
+<body>
+
+    
+    <form>
+        <dialog open id="weight_calculator">
+
+            <div id="title_div"><h1>Dog Calorie Calculator</h1></div>
+
+            <div id="age_div"> <!-- <label for="age">Wybierz wiek psa:</label> !-->
+                <h2>Age</h2> <input class="input" id="age_input" type="text" value="">
+                
+                 <!--
+                <select id="age_id" name="age">
+                    <option value="1">Szczeniak do 4 msc</option>
+                    <option value="2">Szczeniak od 4 msc</option>
+                    <option value="3" >Dorosły od 12 msc</option>
+                    <option value="4">Senior</option>
+                    <option value="0" selected style="display: none;">WYBIERZ WIEK PSA</option>
+                </select> !-->
+            </div>
+
+            <div id="age_image_div">
+                    <div id="puppy" class="image_age"><img style="padding-top: 30px;" src="puppy.png" data-value="Puppy" alt=""><p>Puppy</p> </div>
+                    <div id="junior" class="image_age"><img style="padding-top: 20px;"src="junior.png"  data-value="Junior" alt=""><p>Junior</p></div>
+                    <div id="adult" class="image_age"><img src="adult.png"  data-value="Adult" alt=""><p>Adult</p></div>
+                    <div id="senior" class="image_age"><img style="padding-top: 10px;" src="senior.png"  data-value="Senior" alt=""><p>Senior</p></div>
+                </div>
+              
+            <div id="weight_div">
+                <h2>Weight</h2> <input readonly class="input" id="outweight_input" name="outweight" type="text" value="1" oninput="weight.value = this.value"> 
+            </div>
+
+              <div id="weight_slider_div">
+                    
+                    <input id="range" class="styled-range" type="range" name="weight" min="1" max="99" step="1" value="1"  oninput="outweight.value = this.value ">
+                   
+                </div>
+
+            <div id="body_div">
+                <h2>Body Condition</h2> <input class="input" readonly id="body_input" type="text">
+            </div>
+            <div id="body_image_div">
+                    <div class="image_body"><img style="padding-top: 13px;" data-value="Underweight" src="underweight.png" alt=""><p>Underweight</p> </div>
+                    <div class="image_body"><img data-value="Normal" src="normal.png" alt=""><p style="margin-top: -7px;">Normal</p></div>
+                    <div class="image_body"><img style="padding-top: 5px;" data-value="Overweight" src="overweight.png" alt=""><p style="padding-top: 5px;">Overweight</p></div>
+                </div>
+               
+        <!-- <label for="activity">Wybierz poziom aktywności psa:</label> !-->  
+         <div id="activity_div">
+               <h2>Activity Level</h2> <input readonly class="input" id="activity_input" type="text">
+              <!--    <select id="activity_id" name="activity">
+                    <option value="1.4">Niska aktywność</option>
+                    <option value="1.6">Średnia aktywność</option>
+                    <option value="2">Wysoka aktywność</option>
+                     <option value="0" selected style="display: none;">WYBIERZ AKTYWNOŚĆ PSA</option>
+                </select>  !-->
+            </div>
+            <div id="activity_image_div">
+                    <div class="image_activity"><img style="padding-top: 43px;" src="low.png" data-value="Low"  alt=""><p>Low</p> </div>
+                    <div class="image_activity"><img style="padding-top: 5px;"src="moderate.png" data-value="Moderate" alt=""><p>Moderate</p></div>
+                    <div class="image_activity"><img style="margin-top: -10px;"src="high.png" data-value="High" alt=""><p style="margin-top: -6px;">High</p></div>
+                </div>
+          
+
+            <div id="submit_div">
+                    <input id="submit" type="button" value="Calculate">
+                    <div id="submit_div_2">
+                        <p>Daily Caloric Needs</p>
+                    <input class="input" type="text" name="" id="result">
+                    </div>
+                    
+            </div>      
+                    
+                    
+
+        </dialog>
+    </form>
+   
+
+
+    <script>
+
+        // suwak 
+
+           const range = document.getElementById('range');
+
+           const range1 = document.getElementById('range');
+  
+            function updateBackground(el) {
+            const val = (el.value - el.min) / (el.max - el.min) * 100+1;
+            el.style.background = `linear-gradient(to right, #874418 ${val}%, #eedbc0 ${val}%)`;
+            
+            return margin = (String(Math.round(val/5))+"px") 
+           
+            }
+
+            // icon
+            let ageInput = document.getElementById('age_input');
+            let bodyInput = document.getElementById('body_input');
+            let activityInput = document.getElementById('activity_input');
+                  
+            //calculate
+
+            function calculate(){
+
+                      let age = 0;
+                      let body = 0;
+                      let activity = 0
+
+                document.querySelectorAll('#age_image_div img').forEach(imgAge => {
+                    imgAge.addEventListener('click', () => {
+                    age = imgAge.getAttribute('data-value');
+                    ageInput.value = age;
+                    console.log('Wybrano wiek:', age);
+                    if(age === "Puppy"){
+                        document.querySelectorAll('#age_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#body_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#activity_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                        activityInput.value = "No calculation for Puppy";
+                        bodyInput.value = "No calculation for Puppy";
+                        bodyInput.classList.add("input_info")
+                        activityInput.classList.add("input_info")
+                        activity = "";
+                        body = "";
+
+                    }else
+                    document.querySelectorAll('#age_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.remove('input_info');
+                        
+
+                        activityInput.value = activity;
+                        bodyInput.value = body;
+                        });
+                        
+                        
+
+                        imgAge.classList.add("selected")  
+                    
+                    
+                
+                   });
+                             
+                });
+            
+           
+                document.querySelectorAll('#body_image_div img').forEach(imgBody => {
+                    imgBody.addEventListener('click', () => {
+                    body = imgBody.getAttribute('data-value');
+                    bodyInput.value = body;
+                    console.log('Wybrano cialo:', body);
+                        console.log('Wybrano wiek:', age);
+                    if(age === "Puppy"){
+                        document.querySelectorAll('#age_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#body_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#activity_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                        age = 0;
+                        ageInput.value = ""
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.add("input_info")
+                     } else    
+                         document.querySelectorAll('#body_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.remove('input_info');
+
+                        });
+
+                    imgBody.classList.add("selected")  
+                    });
+                                
+                });
+          
+                
+               
+            
+                document.querySelectorAll('#activity_image_div img').forEach(imgActivity => {
+                    imgActivity.addEventListener('click', () => {
+                    activity = imgActivity.getAttribute('data-value');
+                    activityInput.value = activity;
+                    console.log('Wybrano aktywnosc:', activity);
+                    console.log('Wybrano wiek:', age);
+                    if(age === "Puppy"){
+                        document.querySelectorAll('#age_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#body_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                         document.querySelectorAll('#activity_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        });
+                        age = 0;
+                        ageInput.value = ""
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.add("input_info")
+                        } else    
+                        document.querySelectorAll('#activity_image_div img').forEach(el => {
+                        el.classList.remove('selected');
+                        bodyInput.classList.remove('input_info');
+                        activityInput.classList.remove('input_info');
+
+                        });
+
+                        imgActivity.classList.add("selected")  
+
+                    
+                    });
+                           
+                });
+                        let submit = document.getElementById("submit");
+                        let result = document.getElementById("result");
+                        let weight = document.getElementById('outweight_input');
+                        
+                     
+
+                            submit.addEventListener('click', () => {
+                            let w = 0;
+                            let b = 0;
+
+                                if(body === "Normal"){
+                                    b = 1;
+                                }else if (body === "Underweight"){
+                                    b = 1.2;
+                                }else if (body === "Overweight"){
+                                    b = 0.8;
+                                }
+                            // puppy
+                                if(age === "Puppy") {
+                                    w = 3;
+                                    b = 1;
+                                } 
+                            // junior
+                                if (age === "Junior" && activity === "Moderate") {
+                                    w = 2;
+                                } else if (age === "Junior" && activity === "Low"){
+                                    w = 1.8
+                                } else if (age === "Junior" && activity === "High"){
+                                    w = 2.2
+                                }
+                            // adult 
+                                if (age === "Adult" && activity === "Moderate") {
+                                    w = 1.6;
+                                } else if (age === "Adult" && activity === "Low") {
+                                    w = 1.4;
+                                } else if (age === "Adult" && activity === "High") {
+                                    w = 2;
+                                }
+                            // senior
+                                 if (age === "Senior" && activity === "Moderate") {
+                                    w = 1.4;
+                                } else if (age === "Senior" && activity === "Low") {
+                                    w = 1.2;
+                                } else if (age === "Senior" && activity === "High") {
+                                    w = 1.8;
+                                }
+                                
+
+                            const rer = 70*((parseInt(weight.value))**0.75);
+                            let multiply = b * w;
+                            let der = rer * multiply;
+                            
+                            result.value = Math.round(der);
+                            console.log("waga psa:", weight.value , "wiek psa:",age, "body:", body, "activity:", activity, "rer:", rer)
+                            
+                        })
+                        
+       
+
+           
+
+         }
+
+         calculate();
+           
+           
+            range1.addEventListener('input', () => {
+            range1.style.setProperty('--thumb-margin', this.margin);
+        });
+
+            range.addEventListener('input', function () {
+            updateBackground(this);
+            });
+
+            // inicjalizacja
+            updateBackground(range);
+
+       
+           
+       
+
+        
+
+       
+
+
+
+        // RER=70×(masaciałapsawkg)^0,75; DER=RER×k 
+         
+/*      
+        let dataWeight = document.getElementById("outweight_input");
+        let dataActivity = document.getElementById("activity_id");
+        let k = document.getElementById("age_id");
+        let submit = document.getElementById("submit");
+        let input = document.getElementById("result");
+        
+
+        let weight = parseInt(dataWeight.value);       
+  // let activity = parseFloat(dataActivity.value);    
+        let result;
+
+        console.log("waga:",weight);
+  //  console.log("wspoczynnik wedlug aktywnosci:",activity);
+  //      console.log("wspoczynnik wedlug wieku:",k.value);
+
+        k.addEventListener("change", function (){
+                if (k.value > 2) {
+                    dataActivity.disabled = false;
+                } else dataActivity.disabled = true;
+                
+                 
+        });
+
+
+        submit.addEventListener("click", function(){ 
+        let dataWeight = document.getElementById("outweight_input");
+        let dataActivity = document.getElementById("activity_id");
+        let k = document.getElementById("age_id");
+        let submit = document.getElementById("submit");
+        let input = document.getElementById("result");
+        
+
+        let weight = parseInt(dataWeight.value);       
+        let activity = "brak";
+        activity = parseFloat(dataActivity.value);    
+        let result;
+
+        console.log("waga:",weight);
+        console.log("wspoczynnik wedlug aktywnosci:",activity);
+        console.log("wspoczynnik wedlug wieku:",k.value);
+
+        
+
+        let calculate = function(activity, k) {
+        
+        if(k.value == 1){
+            result = 3*(70*(weight)**0.75);
+           
+        } else if (k.value == 2) {
+            result = 2*(70*(weight)**0.75);
+        } else if (k.value == 3 && activity !== 0){
+            result = activity*(70*(weight)**0.75);
+        }else if (k.value == 4 && activity == 2){
+            result = (activity-0.4)*(70*(weight)**0.75);
+        }else if (k.value == 4 && activity !== 0){
+            result = (activity-0.2)*(70*(weight)**0.75);
+        } else if (activity === 0) {
+            result = "BRAK DANYCH"
+            input.style.color = "red";
+            return console.log(result);
+        }else if (k.value == 0 && activity !== 0){
+            result = "BRAK DANYCH"
+            return console.log(result);
+        }else
+           
+         return console.log(result);
+        };
+       
+        calculate(activity,k);
+
+        console.log(dataActivity);
+        
+        
+       
+       
+        if(activity === 0 && k.value == 0){
+            input.value = `BRAK DANYCH`;
+            input.style.width = "100px";
+            input.style.color = "red";
+           
+        } else if (activity === 0 && k.value >= 3 ){
+            input.value = result;
+            input.style.width = "100px";
+             input.value = `BRAK DANYCH`;
+           
+        } else if(k.value == 0 && activity !== 0) {
+             input.value = `BRAK DANYCH`;
+            input.style.width = "100px";
+            input.style.color = "red";
+        } else {
+            input.style.color = "black";
+            input.style.width = "60px";
+           
+            input.value = `${parseInt(result)} kcal`;
+        } 
+        
+
+        
+        
+        });
+
+*/
+
+        
+           
+    </script>
+</body>
+</html>

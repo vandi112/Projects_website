@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgb(196, 160, 137);
+    }
+    #weight{
+        width: 400px;
+    }
+    #outweight_input{
+        width: 24px;
+
+    }
+    #kcal{
+        width: 40px;
+    }
+    #result{
+        width: 30px;
+    }
+    #result{
+        border: none;
+        width: 60px;
+        text-align: center;
+        font-weight: bold;
+    }
+    #age_id {
+        margin-bottom: 15px;
+        padding: 5px;
+        font-weight: bold;
+        
+    }
+    #activity_id {
+        padding: 5px;
+        font-weight: bold;
+    }
+    #outweight_input{
+        width: 15px;
+        margin-right: 5px;
+        border: none;
+        color: black;
+    }
+    #weight_calculator {
+        border-radius: 2px;
+        background-color: rgb(134, 120, 95);
+        border: none;
+        box-shadow: 1px 1px 2px black;
+    }
+    .disabled{
+        background-color: black;
+    }
+</style>
+<body>
+
+    
+    <form>
+        <dialog open id="weight_calculator">
+
+           <!-- <label for="age">Wybierz wiek psa:</label> !-->
+        <select id="age_id" name="age">
+            <option value="1">Szczeniak do 4 msc</option>
+            <option value="2">Szczeniak od 4 msc</option>
+            <option value="3"  >Dorosły od 12 msc</option>
+            <option value="4">Senior</option>
+            <option value="0" selected style="display: none;">WYBIERZ WIEK PSA</option>
+        </select>
+    
+           <!-- <label for="activity">Wybierz poziom aktywności psa:</label> !-->
+        <select id="activity_id" name="activity">
+            <option value="1.4">Niska aktywność</option>
+            <option value="1.6">Średnia aktywność</option>
+            <option value="2">Wysoka aktywność</option>
+            <option value="0" selected style="display: none;">WYBIERZ AKTYWNOŚĆ PSA</option>
+        </select>
+
+            <p>Podaj wagę psa: <input id="outweight_input" name="outweight" type="text" value="1" oninput="weight.value = this.value">KG<p>
+            <p><input id="weight" type="range" name="weight" min="1" max="99" step="1" value="1" oninput="outweight.value = this.value">
+            </p>
+            
+            <input id="submit" type="button" value="Potwiedź dane">
+            <p>Dzienne zapotrzebowanie twojego psa to: <input type="text" name="" id="result"></p>
+
+        </dialog>
+    </form>
+   
+
+
+    <script>
+
+        // RER=70×(masaciałapsawkg)^0,75; DER=RER×k 
+         
+         
+        let dataWeight = document.getElementById("outweight_input");
+        let dataActivity = document.getElementById("activity_id");
+        let k = document.getElementById("age_id");
+        let submit = document.getElementById("submit");
+        let input = document.getElementById("result");
+        
+
+        let weight = parseInt(dataWeight.value);       
+        let activity = parseFloat(dataActivity.value);    
+        let result;
+
+        console.log("waga:",weight);
+        console.log("wspoczynnik wedlug aktywnosci:",activity);
+        console.log("wspoczynnik wedlug wieku:",k.value);
+
+        k.addEventListener("change", function (){
+                if (k.value > 2) {
+                    dataActivity.disabled = false;
+                } else dataActivity.disabled = true;
+                
+                 
+        });
+
+
+        submit.addEventListener("click", function(){ 
+        let dataWeight = document.getElementById("outweight_input");
+        let dataActivity = document.getElementById("activity_id");
+        let k = document.getElementById("age_id");
+        let submit = document.getElementById("submit");
+        let input = document.getElementById("result");
+        
+
+        let weight = parseInt(dataWeight.value);       
+        let activity = "brak";
+        activity = parseFloat(dataActivity.value);    
+        let result;
+
+        console.log("waga:",weight);
+        console.log("wspoczynnik wedlug aktywnosci:",activity);
+        console.log("wspoczynnik wedlug wieku:",k.value);
+
+        
+
+        let calculate = function(activity, k) {
+        
+        if(k.value == 1){
+            result = 3*(70*(weight)**0.75);
+           
+        } else if (k.value == 2) {
+            result = 2*(70*(weight)**0.75);
+        } else if (k.value == 3 && activity !== 0){
+            result = activity*(70*(weight)**0.75);
+        }else if (k.value == 4 && activity == 2){
+            result = (activity-0.4)*(70*(weight)**0.75);
+        }else if (k.value == 4 && activity !== 0){
+            result = (activity-0.2)*(70*(weight)**0.75);
+        } else if (activity === 0) {
+            result = "BRAK DANYCH"
+            input.style.color = "red";
+            return console.log(result);
+        }else if (k.value == 0 && activity !== 0){
+            result = "BRAK DANYCH"
+            return console.log(result);
+        }else
+           
+         return console.log(result);
+        };
+       
+        calculate(activity,k);
+
+        console.log(dataActivity);
+        
+        
+       
+       
+        if(activity === 0 && k.value == 0){
+            input.value = `BRAK DANYCH`;
+            input.style.width = "100px";
+            input.style.color = "red";
+           
+        } else if (activity === 0 && k.value >= 3 ){
+            input.value = result;
+            input.style.width = "100px";
+             input.value = `BRAK DANYCH`;
+           
+        } else if(k.value == 0 && activity !== 0) {
+             input.value = `BRAK DANYCH`;
+            input.style.width = "100px";
+            input.style.color = "red";
+        } else {
+            input.style.color = "black";
+            input.style.width = "60px";
+           
+            input.value = `${parseInt(result)} kcal`;
+        } 
+        
+
+        
+        
+        });
+
+        
+           
+    </script>
+</body>
+</html>
